@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {%metas%}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%title%}</title>
+    {%favicon%}
+    {%css%}
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">REDCap reporting workspace</p>
+        <h1>A+ Dashboard</h1>
+        <p class="subtitle">A minimal HTML, CSS, JavaScript, and Python starter.</p>
+      </div>
+      <div id="server-status" class="status-pill" data-state="loading">
+        Checking server…
+      </div>
+    </header>
+
+    <main>
+      <section class="metric-grid" aria-label="Example metrics">
+        <article class="metric-card">
+          <span class="metric-label">Active records</span>
+          <strong>1,248</strong>
+          <span class="metric-change positive">Example +6.2%</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Complete forms</span>
+          <strong>87%</strong>
+          <span class="metric-change positive">Example +3.1%</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Open queries</span>
+          <strong>23</strong>
+          <span class="metric-change neutral">Example data</span>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel chart-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Sample visualization</p>
+              <h2>Monthly completion</h2>
+            </div>
+            <span class="sample-badge">Placeholder data</span>
+          </div>
+          <div class="bar-chart" aria-label="Example monthly completion chart">
+            <div class="bar-column"><div class="bar" style="--value: 54%"></div><span>Apr</span></div>
+            <div class="bar-column"><div class="bar" style="--value: 68%"></div><span>May</span></div>
+            <div class="bar-column"><div class="bar" style="--value: 73%"></div><span>Jun</span></div>
+            <div class="bar-column"><div class="bar" style="--value: 82%"></div><span>Jul</span></div>
+            <div class="bar-column"><div class="bar" style="--value: 87%"></div><span>Aug</span></div>
+          </div>
+        </article>
+
+        <aside class="panel connection-panel">
+          <p class="eyebrow">Server-side integration</p>
+          <h2>REDCap connection</h2>
+          <p id="redcap-message" class="connection-message">
+            Waiting for the application server.
+          </p>
+          <button id="test-redcap" type="button" disabled>Test connection</button>
+          <p class="security-note">
+            The test sends the API token only from Python to REDCap. It returns no
+            REDCap project data to this page.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <div class="dash-runtime" aria-hidden="true">{%app_entry%}</div>
+    <footer class="dash-scripts">
+      {%config%}
+      {%scripts%}
+      {%renderer%}
+    </footer>
+  </body>
+</html>

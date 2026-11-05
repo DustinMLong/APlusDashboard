@@ -1,0 +1,47 @@
+[dashboard]
+title = "A+ Data Entry Activity"
+subtitle = "Form completion reporting across BRISK, PRISM, and TRAIN"
+cache_ttl_seconds = 600
+minimum_refresh_seconds = 60
+# Metadata, DAGs, and users change much less often than records and audit logs.
+reference_cache_ttl_seconds = 86400
+# Audit entries older than this window cannot be used for person/date attribution.
+activity_lookback_days = 365
+
+[access]
+# This deployment currently presents the coordinator view. Before sharing with
+# sites, enable private Connect Cloud sharing and add server-enforced email-to-site
+# assignments. A browser dropdown is not an access control.
+enforce_viewer_sites = false
+coordinator_emails = []
+
+[access.viewer_sites]
+# "coordinator@example.org" = ["01", "12"]
+
+# A form counts once for every record/event/repeat instance whose REDCap form
+# status is currently Complete (raw value 2). Put instrument names—not labels—in
+# excluded_forms to omit administrative or test forms from every total.
+
+[[projects]]
+id = "brisk"
+label = "BRISK"
+study_code = "01"
+api_url_env = "REDCAP_BRISK_API_URL"
+api_token_env = "REDCAP_BRISK_API_TOKEN"
+excluded_forms = []
+
+[[projects]]
+id = "prism"
+label = "PRISM"
+study_code = "02"
+api_url_env = "REDCAP_PRISM_API_URL"
+api_token_env = "REDCAP_PRISM_API_TOKEN"
+excluded_forms = []
+
+[[projects]]
+id = "train"
+label = "TRAIN"
+study_code = "03"
+api_url_env = "REDCAP_TRAIN_API_URL"
+api_token_env = "REDCAP_TRAIN_API_TOKEN"
+excluded_forms = []

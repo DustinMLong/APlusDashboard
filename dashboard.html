@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {%metas%}
+    <title>{%title%}</title>
+    {%favicon%}
+    {%css%}
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true" width="0" height="0">
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+      <symbol id="i-project" viewBox="0 0 24 24"><path d="M3 7h7l2 3h9v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M3 7V5a2 2 0 0 1 2-2h5l2 3"/></symbol>
+      <symbol id="i-site" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7M9 10h.01M15 10h.01"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-form" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h8M9 17h6"/></symbol>
+      <symbol id="i-record" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></symbol>
+      <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8.1 8.1 0 0 0-15.5-2M4 4v5h5M4 13a8.1 8.1 0 0 0 15.5 2M20 20v-5h-5"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M10 10v10"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    </svg>
+
+    <div class="layout" id="dashboardLayout">
+      <aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+        <div class="sidebar-header">
+          <div class="brand">
+            <div class="brand-logo-wrap"><img class="brand-logo" src="./assets/APlusLogo.png" alt="APlus Pediatric Trauma Research Network"></div>
+            <div class="brand-caption">Data entry reporting</div>
+          </div>
+          <button class="sidebar-close" id="sidebarCloseButton" type="button" aria-label="Close navigation"><svg class="icon"><use href="#i-close"/></svg></button>
+        </div>
+        <div class="nav-label">Reports</div>
+        <nav class="nav">
+          <a href="#overview" class="active"><svg class="icon"><use href="#i-grid"/></svg>Overview</a>
+          <a href="#trends"><svg class="icon"><use href="#i-chart"/></svg>Trends</a>
+          <a href="#projects"><svg class="icon"><use href="#i-project"/></svg>Projects</a>
+          <a href="#sites"><svg class="icon"><use href="#i-site"/></svg>Sites</a>
+          <a href="#people"><svg class="icon"><use href="#i-users"/></svg>People</a>
+        </nav>
+      </aside>
+      <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+      <main class="main">
+        <header class="topbar" id="topbar">
+          <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Collapse navigation" aria-controls="sidebar" aria-expanded="true"><svg class="icon"><use href="#i-menu"/></svg></button>
+          <div class="topbar-actions">
+            <button class="header-button" id="refreshButton"><svg class="icon"><use href="#i-refresh"/></svg><span>Refresh data</span></button>
+            <button class="header-button" id="printButton"><svg class="icon"><use href="#i-print"/></svg><span>Print</span></button>
+          </div>
+        </header>
+
+        <div class="content" id="overview">
+          <section class="page-heading" aria-labelledby="pageTitle">
+            <div><h1 id="pageTitle">A+ Data Entry Activity</h1></div>
+            <div class="freshness" id="freshness" data-state="loading"><span class="freshness-dot"></span><span>Loading · <time id="lastUpdated">waiting for REDCap</time></span></div>
+          </section>
+
+          <div class="notice" id="dashboardNotice" hidden></div>
+
+          <section class="filter-bar" aria-label="Report filters">
+            <div class="field"><label for="projectFilter">Project</label><select id="projectFilter"><option value="all">All projects</option></select></div>
+            <div class="field"><label for="siteFilter">Site</label><select id="siteFilter"><option value="all">All sites</option></select></div>
+            <div class="field"><label for="periodFilter">Reporting period</label><div class="period-control"><select id="periodFilter"><option value="all">All completed forms</option><option value="custom">Custom</option></select><button class="header-button" id="editDateRange" type="button" aria-label="Edit custom date range" aria-haspopup="dialog" hidden>Edit</button></div></div>
+            <button class="primary-button" id="applyFilters"><svg class="icon"><use href="#i-check"/></svg>Apply filters</button>
+          </section>
+
+          <section class="kpi-grid" aria-label="Key reporting metrics">
+            <article class="kpi-card kpi-card-action green" data-kpi="records"><div class="kpi-top"><span class="kpi-label">Records entered</span><span class="kpi-icon"><svg class="icon"><use href="#i-record"/></svg></span></div><div class="kpi-value">—</div><div class="kpi-footer">Current records in REDCap</div><button class="icon-button kpi-table-button" type="button" data-chart-metric="records" aria-label="Show records created over time" title="Show records created over time" aria-controls="trends" aria-pressed="false" disabled><svg class="icon" aria-hidden="true"><use href="#i-table"/></svg></button></article>
+            <article class="kpi-card kpi-card-action red" data-kpi="forms"><div class="kpi-top"><span class="kpi-label">Completed forms</span><span class="kpi-icon"><svg class="icon"><use href="#i-form"/></svg></span></div><div class="kpi-value">—</div><div class="kpi-footer" id="formsKpiFooter">Across current filters</div><button class="icon-button kpi-table-button" type="button" data-chart-metric="forms" aria-label="Show completed forms chart" title="Show completed forms chart" aria-controls="trends" aria-pressed="true" disabled><svg class="icon" aria-hidden="true"><use href="#i-table"/></svg></button></article>
+            <article class="kpi-card navy" data-kpi="sites"><div class="kpi-top"><span class="kpi-label">Participating sites</span><span class="kpi-icon"><svg class="icon"><use href="#i-site"/></svg></span></div><div class="kpi-value">—</div><div class="kpi-footer">Sites represented in REDCap</div></article>
+            <article class="kpi-card blue" data-kpi="people"><div class="kpi-top"><span class="kpi-label">Data enterers</span><span class="kpi-icon"><svg class="icon"><use href="#i-users"/></svg></span></div><div class="kpi-value">—</div><div class="kpi-footer">People attributed to completions</div></article>
+          </section>
+
+          <section class="panel section-spacer" id="trends" aria-labelledby="activityTrendTitle">
+            <header class="panel-header">
+              <div class="panel-heading">
+                <h2 id="activityTrendTitle">Completed forms over time</h2>
+                <p id="activityCaption">Loading completion activity…</p>
+              </div>
+              <div class="chart-view-buttons" role="group" aria-label="Chart time interval">
+                <button type="button" class="text-button" data-chart-bucket="day" aria-pressed="false" aria-controls="activityChart">Daily</button>
+                <button type="button" class="text-button" data-chart-bucket="month" aria-pressed="true" aria-controls="activityChart">Monthly</button>
+              </div>
+            </header>
+            <div class="chart-stage">
+              <div class="chart-container" id="activityChartContainer">
+                <canvas id="activityChart" role="img" aria-label="Completed forms over time by project">
+                  Completed form activity over time by project.
+                </canvas>
+              </div>
+              <div class="empty-state" id="activityEmpty" hidden>No completion activity is available for these filters.</div>
+            </div>
+          </section>
+
+          <section class="panel section-spacer" id="projects">
+            <header class="panel-header"><div class="panel-heading"><h2>Data Entry By Project</h2><p>Records Entered counts current records across all dates.</p></div><button class="text-button export-button" data-report="projects"><svg class="icon"><use href="#i-download"/></svg>Export CSV</button></header>
+            <div class="table-scroll"><table><thead><tr>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="projects" data-key="project" data-type="text">Project</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="projects" data-key="sites" data-type="number">Active Sites</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="projects" data-key="records" data-type="number">Records Entered</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="projects" data-key="formsCompleted" data-type="number">Forms completed</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="projects" data-key="people" data-type="number">Data enterers</button></th>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="projects" data-key="mostRecentCompletion" data-type="date">Most recent completion</button></th>
+            </tr></thead><tbody id="projectBody"></tbody></table></div>
+            <div class="empty-state" id="projectEmpty">No project activity is available.</div>
+          </section>
+
+          <section class="panel section-spacer" id="sites">
+            <header class="panel-header"><div class="panel-heading"><h2>Data Entry By Site and Project</h2><p>Records Entered counts current records across all dates.</p></div><button class="text-button export-button" data-report="sites"><svg class="icon"><use href="#i-download"/></svg>Export CSV</button></header>
+            <div class="table-toolbar"><div class="search-wrap"><svg class="icon"><use href="#i-search"/></svg><input class="search-input" id="siteSearch" type="search" placeholder="Search sites or projects…" aria-label="Search site activity"></div><span class="table-meta" id="siteMeta">0 rows shown</span></div>
+            <div class="table-scroll"><table><thead><tr>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="sites" data-key="site" data-type="text">Site</button></th>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="sites" data-key="project" data-type="text">Project</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="sites" data-key="records" data-type="number">Records Entered</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="sites" data-key="formsCompleted" data-type="number">Forms completed</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="sites" data-key="people" data-type="number">Data enterers</button></th>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="sites" data-key="mostRecentCompletion" data-type="date">Most recent completion</button></th>
+            </tr></thead><tbody id="siteBody"></tbody></table></div>
+            <div class="empty-state" id="siteEmpty">No site activity is available for these filters.</div>
+          </section>
+
+          <section class="panel section-spacer" id="people">
+            <header class="panel-header"><div class="panel-heading"><h2>Person activity</h2><p>Completed forms and latest completion by person, site, and project</p></div><button class="text-button export-button" data-report="people"><svg class="icon"><use href="#i-download"/></svg>Export CSV</button></header>
+            <div class="table-toolbar"><div class="search-wrap"><svg class="icon"><use href="#i-search"/></svg><input class="search-input" id="personSearch" type="search" placeholder="Search people, sites, or projects…" aria-label="Search person activity"></div><span class="table-meta" id="personMeta">0 rows shown</span></div>
+            <div class="table-scroll"><table><thead><tr>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="people" data-key="person" data-type="text">Person</button></th>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="people" data-key="site" data-type="text">Site</button></th>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="people" data-key="project" data-type="text">Project</button></th>
+              <th scope="col" class="numeric" aria-sort="none"><button class="sort-button" type="button" data-report="people" data-key="formsCompleted" data-type="number">Forms completed</button></th>
+              <th scope="col" aria-sort="none"><button class="sort-button" type="button" data-report="people" data-key="mostRecentCompletion" data-type="date">Most recent completion</button></th>
+            </tr></thead><tbody id="personBody"></tbody></table></div>
+            <div class="empty-state" id="personEmpty">No person activity is available for these filters.</div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+
+    <dialog class="date-range-dialog" id="dateRangeDialog" aria-labelledby="dateRangeTitle" aria-describedby="dateRangeHint">
+      <form id="dateRangeForm">
+        <div class="date-range-heading"><h2 id="dateRangeTitle">Custom reporting period</h2><button class="icon-button" id="closeDateRange" type="button" aria-label="Close date range"><svg class="icon"><use href="#i-close"/></svg></button></div>
+        <p id="dateRangeHint">Choose a start and end date. Both dates are included.</p>
+        <div class="custom-date-range">
+          <div class="field"><label for="startDateFilter">Start date</label><input id="startDateFilter" type="date" min="0001-01-01" max="9999-12-31" required autofocus></div>
+          <div class="field"><label for="endDateFilter">End date</label><input id="endDateFilter" type="date" min="0001-01-01" max="9999-12-31" required></div>
+        </div>
+        <div class="date-range-actions"><button class="header-button" id="cancelDateRange" type="button">Cancel</button><button class="primary-button" type="submit">Apply date range</button></div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"><svg class="icon"><use href="#i-check"/></svg><span id="toastText">Dashboard updated.</span></div>
+    <div class="dash-runtime" aria-hidden="true">{%app_entry%}</div>
+    <footer class="dash-scripts">{%config%}{%scripts%}{%renderer%}</footer>
+  </body>
+</html>
