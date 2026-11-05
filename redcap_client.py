@@ -20,6 +20,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+REDCAP_BRISK_API_URL= https://redcap.school.wakehealth.edu/api/
+REDCAP_BRISK_API_TOKEN = 3AD4C73132F99216883104A16EE65120
+
+
+REDCAP_PRISM_API_URL = https://redcap.school.wakehealth.edu/api/
+REDCAP_PRISM_API_TOKE = 169D74BEDD1A04F57B219058B68ACD93
+
+
+REDCAP_TRAIN_API_URL = https://redcap.school.wakehealth.edu/api/
+REDCAP_TRAIN_API_TOKEN = FDDD655DD3B908C2C5DF555F6C6CBCF4
+
 BASE_DIR = Path(__file__).resolve().parent
 CONFIG_PATH = BASE_DIR / "dashboard_config.toml"
 _PROJECT_ID = re.compile(r"^[a-z][a-z0-9_-]*$")
