@@ -26,22 +26,22 @@ coordinator_emails = []
 id = "brisk"
 label = "BRISK"
 study_code = "01"
-api_url_env = "https://redcap.school.wakehealth.edu/api/"
-api_token_env = "3AD4C73132F99216883104A16EE65120"
+api_url_env = "REDCAP_BRISK_API_URL"
+api_token_env = "REDCAP_BRISK_API_TOKEN"
 excluded_forms = []
 
 [[projects]]
 id = "prism"
 label = "PRISM"
 study_code = "02"
-api_url_env = "https://redcap.school.wakehealth.edu/api/"
-api_token_env = "169D74BEDD1A04F57B219058B68ACD93"
+api_url_env = "REDCAP_PRISM_API_URL"
+api_token_env = "REDCAP_PRISM_API_TOKEN"
 excluded_forms = []
 
 [[projects]]
 id = "train"
 label = "TRAIN"
 study_code = "03"
-api_url_env = "https://redcap.school.wakehealth.edu/api/"
-api_token_env = "FDDD655DD3B908C2C5DF555F6C6CBCF4"
+api_url_env = "REDCAP_TRAIN_API_URL"
+api_token_env = "REDCAP_TRAIN_API_TOKEN"
 excluded_forms = []
