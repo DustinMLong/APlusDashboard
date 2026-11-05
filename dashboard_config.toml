@@ -26,7 +26,7 @@ coordinator_emails = []
 id = "brisk"
 label = "BRISK"
 study_code = "01"
-api_url_env = "REDCAP_BRISK_API_URL"
+api_url_env = https://redcap.school.wakehealth.edu/api/
 api_token_env = "REDCAP_BRISK_API_TOKEN"
 excluded_forms = []
 
@@ -34,7 +34,7 @@ excluded_forms = []
 id = "prism"
 label = "PRISM"
 study_code = "02"
-api_url_env = "REDCAP_PRISM_API_URL"
+api_url_env = https://redcap.school.wakehealth.edu/api/
 api_token_env = "REDCAP_PRISM_API_TOKEN"
 excluded_forms = []
 
